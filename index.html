@@ -866,15 +866,49 @@
         </div>
       </div>
     </div>
-    <form class="contato-form" action="https://formspree.io/f/meewzwqp" method="POST">
+    <form class="contato-form" id="contato-form">
       <div class="form-row">
         <input type="text" name="nome" placeholder="Seu nome" required>
         <input type="tel" name="telefone" placeholder="Telefone" required>
       </div>
       <input type="email" name="email" placeholder="E-mail" required>
       <textarea name="mensagem" placeholder="No que podemos lhe ajudar?"></textarea>
-      <button type="submit" class="btn-send">Enviar mensagem →</button>
+      <button type="submit" class="btn-send" id="btn-enviar">Enviar mensagem →</button>
     </form>
+
+    <div id="contato-sucesso" style="display:none; text-align:center; padding: 3rem 2rem;">
+      <div style="font-size:2.5rem; margin-bottom:1rem;">✅</div>
+      <div style="font-family:'Fraunces',serif; font-size:1.6rem; font-weight:900; color:white; margin-bottom:0.75rem;">Mensagem enviada!</div>
+      <div style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.6;">Obrigado pelo contato. Em breve nossa equipe entrará em contato com você.</div>
+    </div>
+
+    <script>
+      document.getElementById('contato-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('btn-enviar');
+        btn.textContent = 'Enviando...';
+        btn.disabled = true;
+
+        const data = new FormData(this);
+        try {
+          const res = await fetch('https://formspree.io/f/meewzwqp', {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            document.getElementById('contato-form').style.display = 'none';
+            document.getElementById('contato-sucesso').style.display = 'block';
+          } else {
+            btn.textContent = 'Erro ao enviar. Tente novamente.';
+            btn.disabled = false;
+          }
+        } catch {
+          btn.textContent = 'Erro ao enviar. Tente novamente.';
+          btn.disabled = false;
+        }
+      });
+    </script>
   </div>
 </section>
 
