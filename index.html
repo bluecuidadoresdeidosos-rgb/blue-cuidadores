@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Cuidadores de Idosos</title>
+<link rel="icon" type="image/png" href="favicon.png">.hero-left
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #1A56D6;
+    --blue-dark: #0D3A9E;
+    --blue-light: #EBF1FD;
+    --blue-mid: #4B7DE8;
+    --bg: #ffffff;
+    --bg2: #F4F7FE;
+    --text: #0f172a;
+    --text2: #475569;
+    --white: #ffffff;
+    --radius: 14px;
+    --shadow: 0 2px 24px rgba(26,86,214,0.10);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(26,86,214,0.08);
+    padding: 0 5%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 38px;
+    width: auto;
+  }
+
+  .nav-logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text2);
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+    max-width: 120px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text2);
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--blue); }
+
+  .nav-cta {
+    background: var(--blue);
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 0.875rem !important;
+  }
+
+  .nav-cta:hover { background: var(--blue-dark); color: var(--white) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding-top: 64px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('EQUIPE_ESPECIALISTA_EM_GEREONTOLOGIA_E_CUIDADOS__Site___3__edited.jpg');
+    background-size: cover;
+    background-position: center top;
+    z-index: 0;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(8,30,90,0.55) 0%, rgba(8,30,90,0.30) 55%, rgba(8,30,90,0.08) 100%);
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5% 2rem 7%;
+    max-width: 680px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.18);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    width: fit-content;
+  }
+
+  .hero-tag-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(34,197,94,0.35);
+    animation: pulse-green 2s infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse-green {
+    0%   { box-shadow: 0 0 0 0px rgba(34,197,94,0.5); }
+    70%  { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+    100% { box-shadow: 0 0 0 0px rgba(34,197,94,0); }
+  }
+
+  .hero-left h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: white;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-h1-cuidadores {
+    display: block;
+  }
+
+  .hero-eyebrow {
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .hero-eyebrow em {
+    font-style: normal;
+    color: #7FB3FF;
+    font-weight: 600;
+  }
+
+  .hero-left p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 460px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255,255,255,0.35);
+    padding: 13px 22px;
+    border-radius: 100px;
+    transition: background 0.2s;
+  }
+
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+
+  .hero-stat {
+    margin-top: 3.5rem;
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .hero-stat-item strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+  }
+
+  .hero-stat-item span {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 4px;
+    display: block;
+  }
+
+  .hero-stat-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.2);
+    align-self: stretch;
+  }
+
+  /* FEATURES STRIP */
+  .features-strip {
+    background: var(--blue);
+    padding: 3.5rem 7%;
+  }
+
+  .features-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .feature-item {
+    text-align: center;
+    color: var(--white);
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  .feature-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: white;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .feature-item h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-item p {
+    font-size: 0.82rem;
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+
+  /* SECTION GENERIC */
+  section {
+    padding: 6rem 7%;
+  }
+
+  .section-tag {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--blue);
+  }
+
+  .section-lead {
+    font-size: 1rem;
+    color: var(--text2);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* DIFERENCIAS */
+  .diferenciais {
+    background: var(--bg2);
+  }
+
+  .diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .diferencial-card {
+    background: var(--white);
+    border: 1px solid rgba(26,86,214,0.08);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .diferencial-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .diferencial-icon {
+    width: 46px;
+    height: 46px;
+    background: var(--blue-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .diferencial-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--blue);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .diferencial-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--text);
+  }
+
+  .diferencial-card p {
+    font-size: 0.88rem;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+
+  /* PORQUE ESCOLHER */
+  .porque {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    padding: 6rem 7%;
+  }
+
+  .porque-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+
+  .porque-item {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .porque-item-num {
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .porque-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--text);
+  }
+
+  .porque-item p {
+    font-size: 0.88rem;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+
+  .porque-visual {
+    background: var(--blue-light);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .porque-visual::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+    background: rgba(26,86,214,0.08);
+    border-radius: 50%;
+  }
+
+  .porque-visual-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+    line-height: 1.35;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .porque-visual-quote::before {
+    content: '"';
+    font-size: 4rem;
+    line-height: 0;
+    color: var(--blue-mid);
+    opacity: 0.3;
+    position: absolute;
+    top: 14px;
+    left: -12px;
+  }
+
+  .porque-visual-sub {
+    font-size: 0.85rem;
+    color: var(--blue-dark);
+    opacity: 0.7;
+  }
+
+  /* CONTATO */
+  .contato {
+    background: var(--blue);
+    color: white;
+    padding: 6rem 7%;
+  }
+
+  .contato-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contato h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+  }
+
+  .contato-lead {
+    opacity: 0.8;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .contato-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contato-info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+  }
+
+  .contato-info-item svg {
+    width: 18px;
+    height: 18px;
+    stroke: rgba(255,255,255,0.7);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .contato-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .contato-form input,
+  .contato-form textarea {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    padding: 13px 16px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+  }
+
+  .contato-form input::placeholder,
+  .contato-form textarea::placeholder {
+    color: rgba(255,255,255,0.45);
+  }
+
+  .contato-form input:focus,
+  .contato-form textarea:focus {
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.18);
+  }
+
+  .contato-form textarea {
+    height: 130px;
+    resize: vertical;
+  }
+
+  .btn-send {
+    background: white;
+    color: var(--blue-dark);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-send:hover {
+    background: var(--blue-light);
+    transform: translateY(-1px);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  footer span { color: rgba(255,255,255,0.8); }
+
+  @media (max-width: 900px) {
+    .hero-left { padding: 5rem 6% 5rem 6%; }
+    .features-strip-grid { grid-template-columns: repeat(2, 1fr); }
+    .diferenciais-grid { grid-template-columns: 1fr; }
+    .porque { grid-template-columns: 1fr; }
+    .contato-inner { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <img src="logo-blue.png" alt="Blue Cuidadores de Idosos">
+    <span class="nav-logo-text">Cuidadores<br>de Idosos</span>
+  </a>
+  <ul>
+    <li><a href="#inicio">Home</a></li>
+    <li><a href="#diferenciais">Quem Somos</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="#contato" class="nav-cta">Solicitar contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-left">
+    <span class="hero-tag"><span class="hero-tag-dot"></span>Região Metropolitana de SP</span>
+    <div class="hero-eyebrow">Equipe especialista em <em>Gerontologia</em></div>
+    <h1><span class="hero-h1-cuidadores">Cuidadores<br>de Idosos</span></h1>
+    <p>Mais de 600 famílias atendidas com cuidado especializado, humano e de total confiança.</p>
+    <div class="hero-actions">
+      <a href="#contato" class="btn-primary">Solicite contato</a>
+      <a href="#diferenciais" class="btn-ghost">Saiba mais ↓</a>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-item">
+        <strong>600+</strong>
+        <span>famílias atendidas</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat-item">
+        <strong>24h</strong>
+        <span>cobertura disponível</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat-item">
+        <strong>100%</strong>
+        <span>responsabilidade nossa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+  <div class="features-strip-grid">
+    <div class="feature-item">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3>Cuidado até 24 horas</h3>
+      <p>Atendimento especializado e personalizado para seu familiar</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Fique sempre coberto</h3>
+      <p>Substituição em urgências e faltas sem você se preocupar</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3>Atendimento humano</h3>
+      <p>Priorizamos acima de tudo respeito e humanidade ao cliente</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <h3>Nossa responsabilidade</h3>
+      <p>Toda atribuição legal e operacional fica com a equipe Blue</p>
+    </div>
+  </div>
+</div>
+
+<!-- DIFERENCIAIS -->
+<section class="diferenciais" id="diferenciais">
+  <span class="section-tag">Por que escolher a Blue?</span>
+  <h2 class="section-title">O que nos diferencia entre <em>tantas empresas</em></h2>
+  <p class="section-lead">Não somos apenas uma agência de cuidadores. Somos uma equipe técnica especializada que acompanha cada família de perto.</p>
+
+  <div class="diferenciais-grid">
+    <div class="diferencial-card">
+      <div class="diferencial-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <h3>Equipe técnica especialista</h3>
+      <p>A coordenação é formada por um psicólogo especialista em gerontologia e apoiadores treinados, oferecendo suporte todos os dias aos assistidos e familiares.</p>
+    </div>
+    <div class="diferencial-card">
+      <div class="diferencial-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="23 11 17 11"/><line x1="20" y1="8" x2="20" y2="14"/></svg>
+      </div>
+      <h3>Cuidadores treinados e selecionados</h3>
+      <p>Cada cuidador passa por seleção rigorosa e recebe apoio contínuo, garantindo cuidado qualificado e atenção personalizada de acordo com as necessidades de cada família.</p>
+    </div>
+    <div class="diferencial-card">
+      <div class="diferencial-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h3>Honestidade e respeito como pilares</h3>
+      <p>Valorizamos relações transparentes, comunicação clara e compromisso com o que é acordado. Confiança não se promete, se constrói diariamente.</p>
+    </div>
+    <div class="diferencial-card">
+      <div class="diferencial-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3>Atendimento atencioso e específico</h3>
+      <p>Garantimos atendimento personalizado à sua família com orientação contínua aos cuidadores, adaptando o serviço às necessidades de cada assistido.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORQUE ESCOLHER -->
+<section class="porque" id="sobre">
+  <div>
+    <span class="section-tag">Quem somos</span>
+    <h2 class="section-title">Cuidar é nossa <em>vocação</em></h2>
+    <p class="section-lead">A Blue nasceu da vontade de oferecer algo que vai além do cuidado técnico: presença humana, confiança e tranquilidade para toda a família.</p>
+    <div class="porque-items">
+      <div class="porque-item">
+        <div class="porque-item-num">1</div>
+        <div>
+          <h3>Especialistas em gerontologia</h3>
+          <p>Nossa coordenação técnica entende profundamente o envelhecimento e suas particularidades, garantindo o melhor cuidado para cada fase.</p>
+        </div>
+      </div>
+      <div class="porque-item">
+        <div class="porque-item-num">2</div>
+        <div>
+          <h3>Suporte diário à família</h3>
+          <p>Você não fica sozinho. Nossa equipe está disponível todos os dias para orientar, responder dúvidas e ajustar o cuidado conforme necessário.</p>
+        </div>
+      </div>
+      <div class="porque-item">
+        <div class="porque-item-num">3</div>
+        <div>
+          <h3>Responsabilidade legal conosco</h3>
+          <p>Toda a burocracia, encargos e responsabilidades ficam com a Blue. Você só cuida do que realmente importa: estar presente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="porque-visual">
+    <div class="porque-visual-quote">
+      Confiança não se promete, se constrói diariamente.
+    </div>
+    <div class="porque-visual-sub">— Equipe Blue Cuidadores</div>
+    <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(26,86,214,0.15);">
+      <div style="display:flex;gap:2rem;">
+        <div>
+          <div style="font-family:'Fraunces',serif;font-size:1.8rem;font-weight:900;color:var(--blue-dark);">600+</div>
+          <div style="font-size:0.8rem;color:var(--text2);">famílias atendidas</div>
+        </div>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-size:1.8rem;font-weight:900;color:var(--blue-dark);">24h</div>
+          <div style="font-size:0.8rem;color:var(--text2);">de cobertura</div>
+        </div>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-size:1.8rem;font-weight:900;color:var(--blue-dark);">SP</div>
+          <div style="font-size:0.8rem;color:var(--text2);">região metropolitana</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="contato-inner">
+    <div>
+      <h2>Fale com a gente</h2>
+      <p class="contato-lead">Estamos à disposição para entender a situação da sua família e encontrar juntos o melhor cuidador.</p>
+      <div class="contato-info">
+        <div class="contato-info-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          bluecuidadoresdeidosos@gmail.com
+        </div>
+        <div class="contato-info-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (11) 98198-3325
+        </div>
+        <div class="contato-info-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Região Metropolitana de SP
+        </div>
+      </div>
+    </div>
+    <form class="contato-form" action="https://formspree.io/f/meewzwqp" method="POST">
+      <div class="form-row">
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="tel" name="telefone" placeholder="Telefone" required>
+      </div>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <textarea name="mensagem" placeholder="No que podemos lhe ajudar?"></textarea>
+      <button type="submit" class="btn-send">Enviar mensagem →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <img src="logo-blue.png" alt="Blue" style="height:32px;opacity:0.7;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto;filter:brightness(0) invert(1);">
+  © 2025 <span>Blue Cuidadores de Idosos</span> · Todos os direitos reservados
+</footer>
+
+</body>
+</html>
